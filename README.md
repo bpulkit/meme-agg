@@ -47,6 +47,17 @@ Mock data is used for demo stability.
 Recent data is cached in memory for faster response.  
 Connected clients receive frequent live updates.
 
+## API Testing with Postman
+
+Import the file `postman_collection.json` from the repo root into Postman.
+
+Test requests included:
+- GET /health
+- GET /tokens?limit=10
+- GET /tokens?protocol=Orca
+- GET /tokens?minVolume=400
+- GET /debug/fetch
+
 ## Demo Summary
 /health returns ok  
 /tokens returns mock token data  
