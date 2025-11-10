@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"/><title>WS test</title></head>
+<body>
+  <h3>Socket.io test — open two tabs</h3>
+  <pre id="log"></pre>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script>
+    const log = (t) => document.getElementById('log').innerText += t + '\n';
+    const socket = io('http://localhost:3000', { transports: ['websocket'] });
+
+    socket.on('connect', () => {
+      log('connected: ' + socket.id);
+      socket.emit('subscribe', { cursor: null, filters: { period: '24h' } });
+    });
+
+    socket.on('subscribed', (msg) => log('subscribed -> ' + JSON.stringify(msg)));
+    socket.on('disconnect', () => log('disconnected'));
+    socket.onAny((ev, data) => log('event: ' + ev + ' -> ' + JSON.stringify(data)));
+  </script>
+</body>
+</html>
