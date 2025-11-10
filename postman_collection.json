@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "Meme Agg Backend API",
+    "_postman_id": "12345678-aaaa-bbbb-cccc-1234567890ab",
+    "description": "Postman collection for Meme Aggregator REST API & WebSocket",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://meme-agg-production.up.railway.app/health",
+          "protocol": "https",
+          "host": ["meme-agg-production", "up", "railway", "app"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Get Tokens",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://meme-agg-production.up.railway.app/tokens?limit=10",
+          "protocol": "https",
+          "host": ["meme-agg-production", "up", "railway", "app"],
+          "path": ["tokens"],
+          "query": [
+            { "key": "limit", "value": "10" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Filter by Protocol",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://meme-agg-production.up.railway.app/tokens?protocol=Orca",
+          "protocol": "https",
+          "host": ["meme-agg-production", "up", "railway", "app"],
+          "path": ["tokens"],
+          "query": [
+            { "key": "protocol", "value": "Orca" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Min Volume Filter",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://meme-agg-production.up.railway.app/tokens?minVolume=400",
+          "protocol": "https",
+          "host": ["meme-agg-production", "up", "railway", "app"],
+          "path": ["tokens"],
+          "query": [
+            { "key": "minVolume", "value": "400" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Debug Fetch",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://meme-agg-production.up.railway.app/debug/fetch",
+          "protocol": "https",
+          "host": ["meme-agg-production", "up", "railway", "app"],
+          "path": ["debug", "fetch"]
+        }
+      }
+    }
+  ]
+}
