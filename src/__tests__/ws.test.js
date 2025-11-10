@@ -1,6 +1,6 @@
 const { io: Client } = require("socket.io-client");
 
-const WS = "http://localhost:3000";
+const WS = process.env.WS_URL || "http://localhost:3000";
 jest.setTimeout(20000);
 
 describe("WebSocket tests", () => {
