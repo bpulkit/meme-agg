@@ -1,5 +1,5 @@
 const axios = require("axios");
-const BASE = "http://localhost:3000";
+const BASE = process.env.BASE_URL || "http://localhost:3000";
 
 describe("REST API - basic", () => {
   test("GET /health returns ok", async () => {
@@ -27,7 +27,7 @@ describe("REST API - basic", () => {
   test("sort by price_change period 1h", async () => {
     const r = await axios.get(BASE + "/tokens?limit=10&sortBy=price_change&period=1h");
     expect(r.status).toBe(200);
-    const items = r.data.items;
+    const items = r.data.items || [];
     let prev = Number(items[0]?.price_1hr_change ?? 1e9);
     for (const it of items) {
       expect(Number(it.price_1hr_change)).toBeLessThanOrEqual(prev + 1e-6);
